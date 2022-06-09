@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: 'postgres:12.6-alpine'
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    command: bash entrypoint.sh
+    stdin_open: true
+    tty: true
+    environment:
+      BOOKING_DATABASE_USER: user
+      BOOKING_DATABASE_PASSWORD: password
+      BOOKING_DATABASE_HOST: db
+      MODE: development
+    volumes:
+      - .:/recipe_api
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
