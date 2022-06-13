@@ -16,9 +16,9 @@ services:
     stdin_open: true
     tty: true
     environment:
-      BOOKING_DATABASE_USER: user
-      BOOKING_DATABASE_PASSWORD: password
-      BOOKING_DATABASE_HOST: db
+      DATABASE_USER: user
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: db
       MODE: development
     volumes:
       - .:/recipe_api

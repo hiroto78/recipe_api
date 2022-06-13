@@ -1,0 +1,62 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.1
+  Exclude:
+    - db/schema.rb
+    - bin/**/*
+    - vendor/**/*
+    - schema/**/*
+    - spec/factories/**/*
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/LineLength:
+  Exclude:
+    - spec/**/*_spec.rb
+
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
+  Max: 30
+
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/*
+    - config/routes.rb
+    - db/migrate/*.rb
+    - spec/**/*_spec.rb
+
+Metrics/ClassLength:
+  Exclude:
+    - app/models/*
+
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - db/migrate/*
+    - spec/**/*_spec.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolProc:
+  Exclude:
+    - db/migrate/*
+
+Style/MultilineIfModifier:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: true
+  MinBodyLength: 5
+
+Style/EndlessMethod:
+  EnforcedStyle: allow_always
